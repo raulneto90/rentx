@@ -1,0 +1,17 @@
+services:
+  database:
+    image: postgres
+    container_name: rentxdb
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=rentx
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=rentx
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
