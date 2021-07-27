@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
 
+import 'express-async-errors';
 import 'dotenv/config';
 import 'reflect-metadata';
 import '@shared/infra/database';
