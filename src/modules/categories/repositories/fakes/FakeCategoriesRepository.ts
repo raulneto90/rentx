@@ -26,4 +26,8 @@ export class FakeCategoriesRepository implements ICategoriesRepository {
   async findByName(name: string): Promise<Category | undefined> {
     return this.categories.find(category => category.name === name);
   }
+
+  async findAll(): Promise<Category[]> {
+    return this.categories;
+  }
 }

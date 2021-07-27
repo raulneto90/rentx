@@ -23,4 +23,8 @@ export class CategoriesRepository implements ICategoriesRepository {
   findByName(name: string): Promise<Category | undefined> {
     return this.repository.findOne({ name });
   }
+
+  findAll(): Promise<Category[]> {
+    return this.repository.find();
+  }
 }

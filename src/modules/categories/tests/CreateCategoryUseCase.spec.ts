@@ -2,14 +2,17 @@ import { ErrorHandler } from '@shared/errors/ErrorHandler';
 
 import { FakeCategoriesRepository } from '../repositories/fakes/FakeCategoriesRepository';
 import { CreateCategoryUseCase } from '../useCases/createCategory/CreateCategoryUseCase';
+import { ListCategoriesUseCase } from '../useCases/listCategories/ListCategoriesUseCase';
 
 describe('CreateCategoryUseCase', () => {
   let createCategoryUseCase: CreateCategoryUseCase;
+  let listCategoriesUseCase: ListCategoriesUseCase;
   let fakeCategoriesRepository: FakeCategoriesRepository;
 
   beforeEach(() => {
     fakeCategoriesRepository = new FakeCategoriesRepository();
     createCategoryUseCase = new CreateCategoryUseCase(fakeCategoriesRepository);
+    listCategoriesUseCase = new ListCategoriesUseCase(fakeCategoriesRepository);
   });
 
   it('should be able to create a new category', async () => {
@@ -37,5 +40,16 @@ describe('CreateCategoryUseCase', () => {
         description: 'Category Test description',
       }),
     ).rejects.toBeInstanceOf(ErrorHandler);
+  });
+
+  it('should be able to list all categories', async () => {
+    await createCategoryUseCase.execute({
+      name: 'Category Test',
+      description: 'Category Test description',
+    });
+
+    const categories = await listCategoriesUseCase.execute();
+
+    expect.arrayContaining(categories);
   });
 });
