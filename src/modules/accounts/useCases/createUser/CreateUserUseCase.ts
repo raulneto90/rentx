@@ -3,9 +3,9 @@ import { inject, injectable } from 'tsyringe';
 
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
 
-import { ICreateUserDTO } from '../dtos/ICreateUserDTO';
-import { User } from '../entities/User';
-import { IUsersRepository } from '../repositories/IUsersRepository';
+import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { User } from '../../entities/User';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 @injectable()
 export class CreateUserUseCase {

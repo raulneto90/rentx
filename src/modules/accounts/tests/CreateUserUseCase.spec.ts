@@ -2,7 +2,7 @@ import { ErrorHandler } from '@shared/errors/ErrorHandler';
 
 import { ICreateUserDTO } from '../dtos/ICreateUserDTO';
 import { FakeUsersRepository } from '../repositories/fakes/FakeUsersRepository';
-import { CreateUserUseCase } from '../useCases/CreateUserUseCase';
+import { CreateUserUseCase } from '../useCases/createUser/CreateUserUseCase';
 
 describe('CreateUserUseCase', () => {
   let createUserUseCase: CreateUserUseCase;
@@ -31,10 +31,6 @@ describe('CreateUserUseCase', () => {
     expect(user).toHaveProperty('isAdmin');
     expect(user).toHaveProperty('createdAt');
     expect(user).toHaveProperty('updatedAt');
-    expect(user.name).toBe(data.name);
-    expect(user.email).toBe(data.email);
-    expect(user.password).toBe(data.password);
-    expect(user.isAdmin).toBe(false);
   });
 
   it('should not be able to create an user with same driver license', async () => {
