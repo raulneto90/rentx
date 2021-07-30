@@ -1,3 +1,4 @@
+import { hashSync } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
@@ -13,16 +14,28 @@ export class CreateUserUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(data: ICreateUserDTO): Promise<User> {
+  async execute({
+    driverLicense,
+    name,
+    password,
+    email,
+  }: ICreateUserDTO): Promise<User> {
     const userDriverLicenseExists =
-      await this.usersRepository.findByDriverLicense(data.driverLicense);
-    const userEmailExists = await this.usersRepository.findByEmail(data.email);
+      await this.usersRepository.findByDriverLicense(driverLicense);
+    const userEmailExists = await this.usersRepository.findByEmail(email);
 
     if (userDriverLicenseExists || userEmailExists) {
       throw new ErrorHandler('User already exists');
     }
 
-    const user = await this.usersRepository.create(data);
+    const passwordHashed = hashSync(password, 8);
+
+    const user = await this.usersRepository.create({
+      driverLicense,
+      email,
+      name,
+      password: passwordHashed,
+    });
 
     return user;
   }
