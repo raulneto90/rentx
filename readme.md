@@ -14,6 +14,9 @@ no bootcamp Ignite da Rocketseat.
 - [X] TypeORM
 - [X] Tsyringe
 - [X] Swagger
+- [X] Multer
+- [X] CSVParse
+- [X] Class-transformer
 
 ## :floppy_disk: Como baixar e utilizar este projeto
 
