@@ -13,6 +13,15 @@
     },
     "version": "1.0.0"
   },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
   "paths": {
     "/accounts": {
       "post": {
@@ -99,10 +108,64 @@
         }
       }
     },
+    "/accounts/avatar": {
+      "patch": {
+        "tags": [
+          "Accounts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "description": "Import image file to update user avatar",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Avatar update successfully"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is missing"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/categories": {
       "post": {
         "tags": [
           "Categories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ],
         "description": "Create a new car category",
         "requestBody": {
@@ -174,6 +237,22 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is missing"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -181,9 +260,30 @@
         "tags": [
           "Categories"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Ok"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is missing"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -192,6 +292,11 @@
       "post": {
         "tags": [
           "Categories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
         ],
         "description": "Import a csv file to upload categories",
         "requestBody": {
@@ -212,6 +317,22 @@
         "responses": {
           "200": {
             "description": "Import categories successfully"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is missing"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -280,6 +401,11 @@
         "tags": [
           "Specifications"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "description": "Create a new car specification",
         "requestBody": {
           "content": {
@@ -345,6 +471,22 @@
                     "message": {
                       "type": "string",
                       "example": "Specification already exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Token is missing"
                     }
                   }
                 }
