@@ -31,6 +31,10 @@ export async function ensureAuthenticated(
 
     if (!user) throw new ErrorHandler('Token invalid', 401);
 
+    request.user = {
+      id,
+    };
+
     return next();
   } catch (error) {
     throw new ErrorHandler('Token invalid', 401);
