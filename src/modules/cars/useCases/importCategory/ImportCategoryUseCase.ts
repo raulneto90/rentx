@@ -5,6 +5,7 @@ import { inject, injectable } from 'tsyringe';
 import { ICreateCategoryDTO } from '@modules/cars/dtos/ICreateCategoryDTO';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
+import { deleteFile } from '@utils/deleteFile';
 
 @injectable()
 export class ImportCategoryUseCase {
@@ -49,6 +50,8 @@ export class ImportCategoryUseCase {
       if (!existentCategory) {
         await this.categoriesRepository.create({ name, description });
       }
+
+      await deleteFile(`tmp/${file}`);
     });
   }
 }
