@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
-import { User } from '@modules/accounts/entities/User';
+import { User } from '@modules/accounts/infra/typeorm/entities/User';
 
 import { IUsersRepository } from '../IUsersRepository';
 
@@ -8,6 +8,9 @@ export class FakeUsersRepository implements IUsersRepository {
 
   constructor() {
     this.users = [];
+  }
+  update(user: User): Promise<void> {
+    throw new Error('Method not implemented.');
   }
 
   async create(data: ICreateUserDTO): Promise<User> {

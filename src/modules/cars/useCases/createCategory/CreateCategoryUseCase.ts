@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateCategoryDTO } from '@modules/cars/dtos/ICreateCategoryDTO';
-import { Category } from '@modules/cars/entities/Category';
+import { Category } from '@modules/cars/infra/typeorm/entities/Category';
+import { CategoriesRepository } from '@modules/cars/infra/typeorm/repositories/CategoriesRepository';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
-import { CategoriesRepository } from '@modules/cars/repositories/implementations/CategoriesRepository';
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
 
 @injectable()
