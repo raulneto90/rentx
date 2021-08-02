@@ -157,6 +157,129 @@
         }
       }
     },
+    "/cars": {
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "description": "Create a new car",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "dailyRate": {
+                    "type": "number"
+                  },
+                  "licensePlate": {
+                    "type": "string"
+                  },
+                  "fineAmount": {
+                    "type": "number"
+                  },
+                  "brand": {
+                    "type": "string"
+                  },
+                  "categoryId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create car successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Car test"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Description for car test"
+                    },
+                    "dailyRate": {
+                      "type": "number",
+                      "example": 150
+                    },
+                    "licensePlate": {
+                      "type": "string",
+                      "example": "ABCD-1234"
+                    },
+                    "fineAmount": {
+                      "type": "number",
+                      "example": 50
+                    },
+                    "brand": {
+                      "type": "string",
+                      "example": "Brand test"
+                    },
+                    "categoryId": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Car already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Car already exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/categories": {
       "post": {
         "tags": [
