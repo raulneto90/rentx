@@ -23,4 +23,8 @@ export class FakeCarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async findByLicensePlate(licensePlate: string): Promise<Car | undefined> {
+    return this.cars.find(car => car.licensePlate === licensePlate);
+  }
 }

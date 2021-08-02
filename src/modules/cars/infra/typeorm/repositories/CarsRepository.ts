@@ -19,4 +19,10 @@ export class CarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async findByLicensePlate(licensePlate: string): Promise<Car | undefined> {
+    const car = await this.repository.findOne({ licensePlate });
+
+    return car;
+  }
 }
