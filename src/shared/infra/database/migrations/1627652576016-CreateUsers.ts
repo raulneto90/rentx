@@ -25,21 +25,21 @@ export class CreateUsers1627652576016 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'driverLicense',
+            name: 'driver_license',
             type: 'varchar',
           },
           {
-            name: 'isAdmin',
+            name: 'admin',
             type: 'boolean',
             default: false,
           },
           {
-            name: 'createdAt',
+            name: 'created_at',
             type: 'timestamp',
             default: 'now()',
           },
           {
-            name: 'updatedAt',
+            name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
           },

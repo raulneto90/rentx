@@ -25,7 +25,7 @@ export class CreateCars1627827714127 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'dailyRate',
+            name: 'daily_rate',
             type: 'numeric',
           },
           {
@@ -34,11 +34,11 @@ export class CreateCars1627827714127 implements MigrationInterface {
             default: true,
           },
           {
-            name: 'licensePlate',
+            name: 'license_plate',
             type: 'varchar',
           },
           {
-            name: 'fineAmount',
+            name: 'fine_amount',
             type: 'numeric',
           },
           {
@@ -46,16 +46,16 @@ export class CreateCars1627827714127 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'categoryId',
+            name: 'category_id',
             type: 'uuid',
           },
           {
-            name: 'createdAt',
+            name: 'created_at',
             type: 'timestamp',
             default: 'now()',
           },
           {
-            name: 'updatedAt',
+            name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
           },
@@ -63,7 +63,7 @@ export class CreateCars1627827714127 implements MigrationInterface {
         foreignKeys: [
           {
             name: 'FKCategoryCar',
-            columnNames: ['categoryId'],
+            columnNames: ['category_id'],
             referencedColumnNames: ['id'],
             referencedTableName: 'categories',
             onDelete: 'SET NULL',

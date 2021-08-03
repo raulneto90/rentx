@@ -2,17 +2,18 @@ import express, { NextFunction, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
-
 import 'express-async-errors';
 import 'dotenv/config';
 import 'reflect-metadata';
-import '@shared/infra/database';
+import createConnection from '@shared/infra/database';
 import '@shared/containers';
 
 import { routes } from './routes';
 import swaggerFile from './swagger.json';
 
 const app = express();
+
+createConnection();
 
 app.use(express.json());
 app.use(routes);

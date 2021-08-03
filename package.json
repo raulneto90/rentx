@@ -47,9 +47,13 @@
     "dev": "tsnd -r tsconfig-paths/register --transpile-only --inspect --ignore-watch node_modules ./src/shared/infra/http/server.ts",
     "build": "tsc",
     "start": "node ./src/shared/infra/http/server.ts",
-    "create:migration": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:create -n",
+    "migration:create": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:create -n",
     "migration:run": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:run",
     "migration:revert": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:revert",
+    "seed:create": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:generate -c seed -n",
+    "seed:run": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:run -c seed",
+    "seed:revert": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli migration:revert -c seed",
+    "seed": "tsnd src/shared/infra/database/seeds/admin.ts",
     "test": "jest --runInBand"
   }
 }
