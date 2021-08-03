@@ -18,28 +18,28 @@ export class Car {
   @Column()
   description: string;
 
-  @Column()
+  @Column({ name: 'daily_rate' })
   dailyRate: number;
 
   @Column()
   available: boolean;
 
-  @Column()
+  @Column({ name: 'license_plate' })
   licensePlate: string;
 
-  @Column()
+  @Column({ name: 'fine_amount' })
   fineAmount: number;
 
   @Column()
   brand: string;
 
-  @Column()
+  @Column({ name: 'category_id' })
   categoryId: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   constructor() {

@@ -23,19 +23,19 @@ export class User {
   @Exclude()
   password: string;
 
-  @Column()
+  @Column({ name: 'driver_license' })
   driverLicense: string;
 
-  @Column()
+  @Column({ name: 'admin' })
   isAdmin: boolean;
 
   @Column()
   avatar: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
   constructor() {
