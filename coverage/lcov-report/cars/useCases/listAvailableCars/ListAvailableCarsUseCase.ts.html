@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for cars/useCases/createCar/CreateCarUseCase.ts</title>
+    <title>Code coverage report for cars/useCases/listAvailableCars/ListAvailableCarsUseCase.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">cars/useCases/createCar</a> CreateCarUseCase.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">cars/useCases/listAvailableCars</a> ListAvailableCarsUseCase.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.86% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/28</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.86% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/28</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -84,8 +84,11 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -99,14 +102,9 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -115,30 +113,29 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { inject, injectable } from 'tsyringe';
 &nbsp;
-import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
 import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
-import { ErrorHandler } from '@shared/errors/ErrorHandler';
+&nbsp;
+interface IRequest {
+  categoryId?: string;
+  name?: string;
+  brand?: string;
+}
 &nbsp;
 @injectable()
-export class CreateCarUseCase {
+export class ListAvailableCarsUseCase {
   constructor(
     @inject('CarsRepository')
     private carsRepository: ICarsRepository,
   ) {}
-&nbsp;
-  async execute(data: ICreateCarDTO): Promise&lt;Car&gt; {
-    const carExists = await this.carsRepository.findByLicensePlate(
-      data.licensePlate,
+  async execute({ brand, categoryId, name }: IRequest): Promise&lt;Car[]&gt; {
+    const cars = await this.carsRepository.findAllAvailable(
+      brand,
+      categoryId,
+      name,
     );
 &nbsp;
-    if (carExists) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >      throw new ErrorHandler('Car already exists');</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-&nbsp;
-    const car = await this.carsRepository.create(data);
-&nbsp;
-    return car;
+    return cars;
   }
 }
 &nbsp;</pre></td></tr></table></pre>

@@ -27,4 +27,18 @@ export class FakeCarsRepository implements ICarsRepository {
   async findByLicensePlate(licensePlate: string): Promise<Car | undefined> {
     return this.cars.find(car => car.licensePlate === licensePlate);
   }
+
+  async findAllAvailable(
+    brand?: string,
+    categoryId?: string,
+    name?: string,
+  ): Promise<Car[]> {
+    return this.cars.filter(
+      car =>
+        car.available === true ||
+        (brand && car.brand === brand) ||
+        (categoryId && car.categoryId === categoryId) ||
+        (name && car.name === name),
+    );
+  }
 }
