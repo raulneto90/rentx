@@ -280,6 +280,101 @@
         }
       }
     },
+    "/cars/available": {
+      "get": {
+        "tags": [
+          "Cars"
+        ],
+        "description": "List all available cars",
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "description": "Car brand",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Car name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "Category id linked to car",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Car test"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Description for car test"
+                    },
+                    "dailyRate": {
+                      "type": "string",
+                      "example": "150"
+                    },
+                    "available": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "licensePlate": {
+                      "type": "string",
+                      "example": "ABCD-1234"
+                    },
+                    "fineAmount": {
+                      "type": "string",
+                      "example": "150"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "example": "Brand test"
+                    },
+                    "categoryId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/categories": {
       "post": {
         "tags": [
