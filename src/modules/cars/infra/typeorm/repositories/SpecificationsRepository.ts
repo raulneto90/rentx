@@ -19,7 +19,11 @@ export class SpecificationsRepository implements ISpecificationsRepository {
     return specification;
   }
 
-  findByName(name: string): Promise<Specification | undefined> {
+  async findByName(name: string): Promise<Specification | undefined> {
     return this.repository.findOne({ name });
+  }
+
+  async findByIds(ids: string[]): Promise<Specification[]> {
+    return this.repository.findByIds(ids);
   }
 }

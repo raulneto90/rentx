@@ -28,4 +28,10 @@ export class FakeSpecificationsRepository implements ISpecificationsRepository {
       specification => specification.name === name,
     );
   }
+
+  async findByIds(ids: string[]): Promise<Specification[]> {
+    return this.specifications.filter(specification =>
+      ids.includes(specification.id),
+    );
+  }
 }

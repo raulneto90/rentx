@@ -41,4 +41,18 @@ export class FakeCarsRepository implements ICarsRepository {
         (name && car.name === name),
     );
   }
+
+  async findById(id: string): Promise<Car | undefined> {
+    return this.cars.find(car => car.id === id);
+  }
+
+  async update(car: Car): Promise<Car> {
+    const carIndex = this.cars.findIndex(
+      existentCar => existentCar.id === car.id,
+    );
+
+    this.cars[carIndex] = car;
+
+    return car;
+  }
 }
