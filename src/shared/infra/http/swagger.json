@@ -375,6 +375,136 @@
         }
       }
     },
+    "/cars/{id}/specifications": {
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "description": "Create car specifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "specificationsId": {
+                    "type": "array",
+                    "items": {
+                      "minItems": 1,
+                      "type": "string"
+                    },
+                    "required": [
+                      "specificationsId"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Car test"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Car test description"
+                    },
+                    "dailyRate": {
+                      "type": "string",
+                      "example": "150"
+                    },
+                    "available": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "licensePlate": {
+                      "type": "string",
+                      "example": "ABCD-1234"
+                    },
+                    "fineAmount": {
+                      "type": "string",
+                      "example": "50"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "example": "Brand test"
+                    },
+                    "categoryId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "datetime"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "datetime"
+                    },
+                    "specifications": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Specification test"
+                          },
+                          "description": {
+                            "type": "string",
+                            "example": "Description for specification test"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "datetime"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "datetime"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found"
+          }
+        }
+      }
+    },
     "/categories": {
       "post": {
         "tags": [
