@@ -19,10 +19,6 @@ export class CarImage {
   @Column({ name: 'car_id' })
   carId: string;
 
-  @ManyToOne(() => Car)
-  @JoinColumn({ name: 'car_id' })
-  car: Car;
-
   @Column({ name: 'image_name' })
   imageName: string;
 
