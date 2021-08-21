@@ -27,7 +27,7 @@ export async function ensureAuthenticated(
 
     const usersRepository = new UsersRepository();
 
-    const user = usersRepository.findById(id);
+    const user = await usersRepository.findById(id);
 
     if (!user) throw new ErrorHandler('Token invalid', 401);
 

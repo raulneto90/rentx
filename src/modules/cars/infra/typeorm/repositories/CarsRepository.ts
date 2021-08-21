@@ -57,4 +57,10 @@ export class CarsRepository implements ICarsRepository {
 
     return car;
   }
+
+  async update(car: Car): Promise<Car> {
+    await this.repository.save(car);
+
+    return car;
+  }
 }

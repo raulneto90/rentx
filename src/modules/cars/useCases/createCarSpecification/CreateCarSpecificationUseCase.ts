@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateCarSpecificationDTO } from '@modules/cars/dtos/ICreateCarSpecificationDTO';
+import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
@@ -18,7 +19,7 @@ export class CreateCarSpecificationUseCase {
   async execute({
     carId,
     specificationsId,
-  }: ICreateCarSpecificationDTO): Promise<void> {
+  }: ICreateCarSpecificationDTO): Promise<Car> {
     const car = await this.carsRepository.findById(carId);
 
     if (!car) {
@@ -32,5 +33,7 @@ export class CreateCarSpecificationUseCase {
     car.specifications = specifications;
 
     await this.carsRepository.update(car);
+
+    return car;
   }
 }
