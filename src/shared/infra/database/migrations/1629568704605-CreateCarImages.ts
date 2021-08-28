@@ -32,10 +32,10 @@ export class CreateCarImages1629568704605 implements MigrationInterface {
         ],
         foreignKeys: [
           {
+            name: 'FKCarImage',
             columnNames: ['car_id'],
             referencedColumnNames: ['id'],
             referencedTableName: 'cars',
-            name: 'FKCarImage',
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },
