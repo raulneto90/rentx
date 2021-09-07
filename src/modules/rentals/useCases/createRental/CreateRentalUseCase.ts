@@ -1,13 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
+import { ICreateRentalDTO } from '@modules/rentals/dtos/ICreateRentalDTO';
+import { Rental } from '@modules/rentals/infra/typeorm/entities/Rental';
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import { ErrorHandler } from '@shared/errors/ErrorHandler';
-
-interface IRequest {
-  userId: string;
-  carId: string;
-  expectedReturnDate: Date;
-}
 
 @injectable()
 export class CreateRentalUseCase {
@@ -20,7 +16,7 @@ export class CreateRentalUseCase {
     carId,
     expectedReturnDate,
     userId,
-  }: IRequest): Promise<void> {
+  }: ICreateRentalDTO): Promise<Rental> {
     const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(
       carId,
     );
@@ -36,5 +32,13 @@ export class CreateRentalUseCase {
     if (rentalOpenToUser) {
       throw new ErrorHandler(`There's a rental in progress for this user!`);
     }
+
+    const rental = await this.rentalsRepository.create({
+      carId,
+      userId,
+      expectedReturnDate,
+    });
+
+    return rental;
   }
 }
