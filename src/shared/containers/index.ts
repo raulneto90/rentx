@@ -13,6 +13,8 @@ import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecifica
 import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 
+import './providers';
+
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepository,

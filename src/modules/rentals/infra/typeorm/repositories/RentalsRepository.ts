@@ -12,11 +12,12 @@ export class RentalsRepository implements IRentalsRepository {
     this.repository = getRepository(Rental);
   }
 
-  findOpenRentalByCar(carId: string): Promise<Rental | undefined> {
-    throw new Error('Method not implemented.');
+  async findOpenRentalByCar(carId: string): Promise<Rental | undefined> {
+    return this.repository.findOne({ carId });
   }
-  findOpenRentalByUser(userId: string): Promise<Rental | undefined> {
-    throw new Error('Method not implemented.');
+
+  async findOpenRentalByUser(userId: string): Promise<Rental | undefined> {
+    return this.repository.findOne({ userId });
   }
 
   async create(data: ICreateRentalDTO): Promise<Rental> {

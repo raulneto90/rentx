@@ -12,10 +12,10 @@ export class Rental {
   @PrimaryColumn()
   id: string;
 
-  @Column()
+  @Column({ name: 'car_id' })
   carId: string;
 
-  @Column()
+  @Column({ name: 'user_id' })
   userId: string;
 
   @Column({ name: 'start_date' })
