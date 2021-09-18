@@ -6,7 +6,7 @@ export default [
     port: 5433,
     username: 'rentx',
     password: 'docker',
-    database: 'rentx',
+    database: process.env.NODE_ENV === 'test' ? 'rentx_test' : 'rentx',
     entities: ['./src/modules/**/entities/*.ts'],
     migrations: ['./src/shared/infra/database/migrations/*.ts'],
     cli: {

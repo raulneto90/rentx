@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">29.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/57</span>
+                <span class='fraction'>17/57</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">29.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/57</span>
+                <span class='fraction'>17/57</span>
             </div>
         
             
@@ -114,7 +114,23 @@
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -137,6 +153,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -152,42 +170,24 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import csvParse from 'csv-parse';</span></span></span>
-<span class="cstat-no" title="statement not covered" >import fs from 'fs';</span>
-<span class="cstat-no" title="statement not covered" >import { inject, injectable } from 'tsyringe';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { ICreateCategoryDTO } from '@modules/cars/dtos/ICreateCategoryDTO';</span>
-<span class="cstat-no" title="statement not covered" >import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';</span>
-<span class="cstat-no" title="statement not covered" >import { ErrorHandler } from '@shared/errors/ErrorHandler';</span>
-<span class="cstat-no" title="statement not covered" >import { deleteFile } from '@utils/deleteFile';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >@injectable()</span>
-<span class="cstat-no" title="statement not covered" >export class ImportCategoryUseCase {</span>
-<span class="cstat-no" title="statement not covered" >  constructor(</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import csvParse from 'csv-parse';
+import fs from 'fs';
+import { inject, injectable } from 'tsyringe';
+&nbsp;
+import { ICreateCategoryDTO } from '@modules/cars/dtos/ICreateCategoryDTO';
+import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
+import { ErrorHandler } from '@shared/errors/ErrorHandler';
+import { deleteFile } from '@utils/deleteFile';
+&nbsp;
+@injectable()
+export class ImportCategoryUseCase {
+<span class="fstat-no" title="function not covered" >  constructor(</span>
 <span class="cstat-no" title="statement not covered" >    @inject('CategoriesRepository')</span>
 <span class="cstat-no" title="statement not covered" >    private categoriesRepository: ICategoriesRepository,</span>
 <span class="cstat-no" title="statement not covered" >  ) {}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  loadCategories(</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  loadCategories(</span>
 <span class="cstat-no" title="statement not covered" >    file: Express.Multer.File | undefined,</span>
 <span class="cstat-no" title="statement not covered" >  ): Promise&lt;ICreateCategoryDTO[]&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    return new Promise((resolve, reject) =&gt; {</span>
@@ -210,8 +210,8 @@
 <span class="cstat-no" title="statement not covered" >      } else reject(new ErrorHandler('CSV file not provided'));</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  async execute(file: Express.Multer.File | undefined): Promise&lt;void&gt; {</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async execute(file: Express.Multer.File | undefined): Promise&lt;void&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!file) throw new ErrorHandler('CSV file not provided');</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const categories = await this.loadCategories(file);</span>
@@ -227,7 +227,7 @@
 <span class="cstat-no" title="statement not covered" >      await deleteFile(`tmp/${file}`);</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -235,7 +235,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Sep 07 2021 10:04:16 GMT-0300 (Horário Padrão de Brasília)
+                at Sat Sep 18 2021 16:06:39 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

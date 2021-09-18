@@ -18,13 +18,13 @@ export class Rental {
   @Column({ name: 'user_id' })
   userId: string;
 
-  @Column({ name: 'start_date' })
+  @Column({ name: 'start_date', type: 'timestamp' })
   startDate: Date;
 
-  @Column({ name: 'end_date' })
+  @Column({ name: 'end_date', type: 'timestamp' })
   endDate: Date;
 
-  @Column({ name: 'expected_return_date' })
+  @Column({ name: 'expected_return_date', type: 'timestamp' })
   expectedReturnDate: Date;
 
   @Column()
